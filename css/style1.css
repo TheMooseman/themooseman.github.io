@@ -6,3 +6,27 @@ h1 {
 	color: ghostwhite;
 	margin-left: 50%;
 }
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: lightskyblue;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+    text-align: center;
+    padding: 2% 2.4%;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
