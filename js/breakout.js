@@ -100,4 +100,4 @@ function draw()
 	y += dy;
 }
 
-setInterval(draw, 10);
+setInterval(draw, 6.94);
