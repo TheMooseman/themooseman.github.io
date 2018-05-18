@@ -79,7 +79,11 @@ function draw()
 		else
 		{
 			alert("Game Over");
+			var alert1 = 1;
+			if(alert1 == 1)
+			{
 			document.location.reload();
+			}
 		}
 	}
 
