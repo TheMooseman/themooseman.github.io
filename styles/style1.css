@@ -6,7 +6,6 @@ ul {
     margin: 0;
     padding: 0;
     background-color: grey;
-    overflow: hidden;
 }
 
 li {
@@ -35,7 +34,7 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: lightskyblue;
+    background-color: lightgrey;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
