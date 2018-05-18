@@ -59,15 +59,11 @@ function draw()
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 	drawPaddle();
 	drawBall();
+	
     
 	if(x + dx > canvas.width - ballRadius || x + dx < ballRadius)
 	{
 		dx = -dx;
-	}
-
-	if(x > paddleX && x < paddleX + paddleWidth)
-	{
-		dy = -dy;
 	}
 
 	if(y + dy < ballRadius)
@@ -76,13 +72,14 @@ function draw()
 	}
 	else if(y + dy > canvas.height - ballRadius)
 	{
-		if(x > paddX && x < paddleX + paddleWidth) 
+		if(x > paddleX && x < paddleX + paddleWidth) 
 		{
 			dy = -dy;
 		}
-		else{
-		alert("Game Over");
-		document.location.reload();
+		else
+		{
+			alert("Game Over");
+			document.location.reload();
 		}
 	}
 
