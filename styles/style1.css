@@ -14,9 +14,7 @@ li {
     border-right: 1px solid lightcyan;
 }
 
-li:last-child {
-    border-right: none;
-}
+
 
 li a, .dropbtn {
     display: inline-block;
