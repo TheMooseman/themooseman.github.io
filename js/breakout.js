@@ -108,11 +108,12 @@ function collisionDetection()
 		for(var r = 0; r < brickRowCount; r++)
 		{
 			var b = bricks[i][r];
-			if(currentLevel > prevLevel)
+			if(currentLevel != prevLevel)
 			{
 				b.status = 1;
 				prevLevel = currentLevel;
 			}
+
 			if(b.status == 1)
 			{
 				if(x > b.x && x < (b.x + brickWidth) && y > b.y && y < (b.y + brickHeight))
@@ -137,7 +138,7 @@ function drawLives()
 {
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "0095DD";
-	ctx.fillText("Lives: " + lives, 210, 130);
+	ctx.fillText("Lives: " + (lives - 1), 210, 130);
 }
 
 function drawLevel()
