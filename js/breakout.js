@@ -108,12 +108,6 @@ function collisionDetection()
 		for(var r = 0; r < brickRowCount; r++)
 		{
 			var b = bricks[i][r];
-			if(currentLevel != prevLevel)
-			{
-				b.status = 1;
-				prevLevel = currentLevel;
-			}
-
 			if(b.status == 1)
 			{
 				if(x > b.x && x < (b.x + brickWidth) && y > b.y && y < (b.y + brickHeight))
@@ -152,10 +146,10 @@ function checkWinScenario()
 {
 	if(score == brickRowCount*brickColumnCount)
 	{
-		alert("YOU WON! NEXT LEVEL");
+		alert("YOU WON! ONTO LEVEL " + (currentLevel + 1) +"!");
 		score = 0;
 		currentLevel++;
-		prevLevel = currentLevel--;
+		//prevLevel = currentLevel--;
 		brickColumnCount = (brickColumnCountOrig + currentLevel);
 		brickRowCount = (brickRowCountOrig + currentLevel);
 		
