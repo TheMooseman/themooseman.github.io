@@ -46,7 +46,6 @@ function generateLevel()
 			( 30+((canvas.height / 2) / brickRowCount) * r), 
 			true 
 			);
-
 			bricks.push(newBrick);
 		}
 	}
@@ -124,7 +123,7 @@ function collisionDetection()
 		{
 			if(x > b.x && x < (b.x + b.width) && y > b.y && y < (b.y + b.height))
 			{
-				dy = -dy;
+				dy = (-dy * 1.04) ;
 				b.status = false;
 				score++;
 			}
@@ -203,7 +202,7 @@ function draw()
 	{
 		if(x > paddleX && x < paddleX + paddleWidth) 
 		{
-			dy = -dy;
+			dy = (-dy - .1);
 		}
 		else
 		{
