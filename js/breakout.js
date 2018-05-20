@@ -86,7 +86,7 @@ function drawBricks()
 function drawPaddle()
 {
     ctx.beginPath();
-    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+    ctx.rect(paddleX, (canvas.height-paddleHeight - 10), paddleWidth, paddleHeight);
     ctx.fillStyle = "#0095DD";
     ctx.fill();
     ctx.closePath();
@@ -137,7 +137,7 @@ function drawLives()
 {
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "0095DD";
-	ctx.fillText("Lives: " + lives, (canvas.width/2 - 30), 20);
+	ctx.fillText("Lives: " + lives, 210, 130);
 }
 
 function drawLevel()
@@ -189,12 +189,11 @@ function draw()
 	{
 		dx = -dx;
 	}
-
 	if(y + dy < ballRadius)
 	{
 		dy = -dy;
 	}
-	else if(y + dy > canvas.height - ballRadius)
+	else if(y + dy > canvas.height - ballRadius - 10)
 	{
 		if(x > paddleX && x < paddleX + paddleWidth) 
 		{
