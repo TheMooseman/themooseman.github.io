@@ -13,7 +13,7 @@ var leftPressed = false;
 var brickRowCount = 3;
 var brickColumnCount = 5;
 var brickRowCountOrig = 3;
-var brickRowCountOrig = 5;
+var brickColumnCountOrig = 5;
 var brickWidth = 75;
 var brickHeight = 20;
 var brickPadding = 10;
@@ -25,14 +25,34 @@ var lives = 3;
 var currentLevel = 1;
 var prevLevel = 1;
 
-for(var i = 0; i < brickColumnCount; i++)
+
+function generateLevel()
 {
-	bricks[i] = [];
-	for(var r = 0; r < brickRowCount; r++)
+	
+	bricks = [];
+	paddleX = ((canvas.width - paddleWidth)/2);
+	dx = .5;
+	dy = -1.5;
+
+	for(var i = 0; i < brickColumnCount; i++)
 	{
-		bricks[i][r] = { x: 0, y: 0, status: 1};
+		for(var r = 0; r < brickRowCount; r++)
+		{
+			var newBrick = new brick
+			( 
+			( ((canvas.height/2) / brickRowCount)/2), 
+			( (canvas.width / brickColumnCount) * 5/6),
+			( (8 + (canvas.width / brickColumnCount) * i)), 
+			( 30+((canvas.height / 2) / brickRowCount) * r), 
+			true 
+			);
+
+			bricks.push(newBrick);
+		}
 	}
 }
+
+generateLevel();
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -63,22 +83,16 @@ function keyUpHandler(e)
 
 function drawBricks()
 {
-	for(var i = 0; i < brickColumnCount; i++)
+	for(var i = 0; i < bricks.length; i++)
 	{
-		for(var r = 0; r < brickRowCount; r++)
+		if(bricks[i].status == true)
 		{
-			if(bricks[i][r].status == 1)
-			{
-			var brickX = (i*(brickWidth+brickPadding))+brickOffsetLeft;
-            var brickY = (r*(brickHeight+brickPadding))+brickOffsetTop;
-            bricks[i][r].x = brickX;
-            bricks[i][r].y = brickY;
-            ctx.beginPath();
-            ctx.rect(brickX, brickY, brickWidth, brickHeight);
-            ctx.fillStyle = "#0095DD";
-            ctx.fill();
-			ctx.closePath();
-			}
+		var currentBrick = bricks[i];
+        ctx.beginPath();
+        ctx.rect(currentBrick.x, currentBrick.y, currentBrick.width, currentBrick.height);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+		ctx.closePath();
 		}
 	}
 }
@@ -103,19 +117,16 @@ function drawBall()
 
 function collisionDetection()
 {
-	for(var i = 0; i < brickColumnCount; i++)
+	for(var i = 0; i < bricks.length; i++)
 	{
-		for(var r = 0; r < brickRowCount; r++)
+		var b = bricks[i];
+		if(b.status == true)
 		{
-			var b = bricks[i][r];
-			if(b.status == 1)
+			if(x > b.x && x < (b.x + b.width) && y > b.y && y < (b.y + b.height))
 			{
-				if(x > b.x && x < (b.x + brickWidth) && y > b.y && y < (b.y + brickHeight))
-				{
-					dy = -dy;
-					b.status = 0;
-					score++;
-				}
+				dy = -dy;
+				b.status = false;
+				score++;
 			}
 		}
 	}
@@ -132,7 +143,7 @@ function drawLives()
 {
 	ctx.font = "16px Arial";
 	ctx.fillStyle = "0095DD";
-	ctx.fillText("Lives: " + (lives - 1), 210, 130);
+	ctx.fillText("Lives: " + (lives - 1), 210, 20);
 }
 
 function drawLevel()
@@ -144,15 +155,15 @@ function drawLevel()
 
 function checkWinScenario()
 {
-	if(score == brickRowCount*brickColumnCount)
+	if(score == bricks.length)
 	{
 		alert("YOU WON! ONTO LEVEL " + (currentLevel + 1) +"!");
 		score = 0;
 		currentLevel++;
-		//prevLevel = currentLevel--;
+		prevLevel = --currentLevel;
 		brickColumnCount = (brickColumnCountOrig + currentLevel);
 		brickRowCount = (brickRowCountOrig + currentLevel);
-		
+		generateLevel();	
 	}
 }
 
@@ -210,7 +221,7 @@ function draw()
 			{
 				x = canvas.width/2;
 				y = canvas.height/2;
-				dx = 1.5;
+				dx = .5;
 				dy = -1.5;
 				paddleX = ((canvas.width - paddleWidth)/2);
 			}
@@ -227,8 +238,6 @@ function draw()
 
 	x += dx;
 	y += dy;
-
-	//requestAnimationFrame(draw);
 
 }
 
