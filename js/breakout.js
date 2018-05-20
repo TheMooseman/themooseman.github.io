@@ -159,7 +159,6 @@ function checkWinScenario()
 		alert("YOU WON! ONTO LEVEL " + (currentLevel + 1) +"!");
 		score = 0;
 		currentLevel++;
-		prevLevel = --currentLevel;
 		brickColumnCount = (brickColumnCountOrig + currentLevel);
 		brickRowCount = (brickRowCountOrig + currentLevel);
 		generateLevel();	
