@@ -24,13 +24,15 @@ var score = 0;
 var lives = 3;
 var currentLevel = 1;
 var prevLevel = 1;
-
+var normalizedAcceleration = 0;
 
 function generateLevel()
 {
 	
 	bricks = [];
 	paddleX = ((canvas.width - paddleWidth)/2);
+	x = canvas.width/2;
+	y = canvas.height/2;
 	dx = .5;
 	dy = -1.5;
 
@@ -123,7 +125,7 @@ function collisionDetection()
 		{
 			if(x > b.x && x < (b.x + b.width) && y > b.y && y < (b.y + b.height))
 			{
-				dy = (-dy * 1.04) ;
+				dy = (-dy * 1.02) ;
 				b.status = false;
 				score++;
 			}
@@ -174,6 +176,19 @@ function drawBackground()
 	ctx.closePath();
 }
 
+var acceleration = 0;
+
+function incrementAcceleration()
+{
+	acceleration++;
+	normalizedAcceleration = normalizeNumber(acceleration, 100, 0);
+}
+
+function normalizeNumber(val, max, min)
+{
+	return ((val - min) / (max - min));
+}
+
 function draw()
 {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -191,7 +206,7 @@ function draw()
     
 	if((x + dx) > (canvas.width - ballRadius) || (x + dx) < ballRadius)
 	{
-		dx = -dx;
+		dx = (-dx * 1.01);
 	}
 	if(y + dy < ballRadius)
 	{
@@ -201,7 +216,7 @@ function draw()
 	{
 		if(x > paddleX && x < paddleX + paddleWidth) 
 		{
-			dy = (-dy - .1);
+			dy = (-dy * 1.01);
 		}
 		else
 		{
@@ -227,12 +242,19 @@ function draw()
 	}
 	if(rightPressed && paddleX < canvas.width-paddleWidth)
 	{
-        paddleX += 4;
+		setTimeout(incrementAcceleration, 1)
+		paddleX += (4 * normalizedAcceleration);
     }
 	else if(leftPressed && paddleX > 0)
 	{
-        paddleX -= 4;
-    }
+		setTimeout(incrementAcceleration, 1)
+		paddleX -= (4 * normalizedAcceleration);
+	}
+	if(!rightPressed && !leftPressed)
+	{
+		acceleration = 0;
+		clearTimeout();
+	}
 
 	x += dx;
 	y += dy;
