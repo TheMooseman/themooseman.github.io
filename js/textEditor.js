@@ -26,3 +26,10 @@ function checkAndRenderText()
 		}
 	}
 }
+
+if(file != null)
+{
+	console.log("file added");
+	textInFile = reader.readAsText(file);
+	txt = textInFile;
+}
