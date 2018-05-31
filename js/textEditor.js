@@ -17,6 +17,7 @@ if ('files' in file)
 	}
 	else
 	{
-		txt = file;
+		textInFile = reader.readAsText(file);
+		txt = textInFile;
 	}
 }
