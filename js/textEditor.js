@@ -9,15 +9,19 @@ var file = document.getElementById("yourFile");
 var reader = new FileReader();
 var txt = "";
 
-if ('files' in file)
+
+function checkAndRenderText()
 {
-	if(file.files.length == 0)
+	if ('files' in file)
 	{
-		txt = "select file";
-	}
-	else
-	{
-		textInFile = reader.readAsText(file);
-		txt = textInFile;
+		if(file.files.length == 0)
+		{
+			txt = "select file";
+		}
+		else
+		{
+			textInFile = reader.readAsText(file);
+			txt = textInFile;
+		}
 	}
 }
