@@ -11,8 +11,9 @@ var reader = new FileReader();
 reader.onload = function(e)
 {
 	var text = reader.result;
+	reader.readAsText(file);
 	c.fillText(text, canvas.width/2, canvas.height/2);
 }
 
-reader.readAsText(file);
+
 
