@@ -14,6 +14,7 @@ function checkAndRenderText()
 {
 	if ('files' in file)
 	{
+		console.log("there is a file");
 		if(file.files.length == 0)
 		{
 			txt = "select file";
