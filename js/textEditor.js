@@ -8,12 +8,12 @@ c.textAlign = "center";
 var file = document.getElementById("yourFile");
 var reader = new FileReader();
 
-reader.onload = function(e)
+function onChange(event)
 {
-	var text = reader.result;
+	reader.onload = function(e)
+	{
+		var text = reader.result;
+		c.fillText(text, canvas.width/2, canvas.height/2);
+	}
 	reader.readAsText(file);
-	c.fillText(text, canvas.width/2, canvas.height/2);
 }
-
-
-
