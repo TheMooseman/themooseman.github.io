@@ -1,5 +1,5 @@
-var canvas = document.getElementById("canvas");
-var c = canvas.getContext("2d");
+var canvas = document.getElementById("Canvas");
+var c = canvas.GetContext("2d");
 
 c.font = "30px Comic Sans MS";
 c.fillStyle = "red";
