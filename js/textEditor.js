@@ -12,6 +12,7 @@ function onChange(event)
 {
 	reader.onload = function(e)
 	{
+		console.log("ran script");
 		var text = reader.result;
 		c.fillText(text, canvas.width/2, canvas.height/2);
 	}
