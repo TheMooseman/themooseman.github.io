@@ -32,7 +32,6 @@ var a2A = -0.001;
 var a1V = 0;
 var a2V = 0;
 
-
 //ball position
 var x1 = xOrigin + (r1 * Math.sin(a1));
 var y1 = yOrigin + (r1 * Math.cos(a1));
