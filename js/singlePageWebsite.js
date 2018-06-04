@@ -30,6 +30,17 @@ function changeCanvasSize()
 	ctx.canvas.height = window.innerHeight;
 }
 
+changeCanvasSize();
+var WIDTH = canvas.width;
+var HEIGHT = canvas.height;
+
+var pages = [];
+var page1 = [WIDTH, HEIGHT];
+var page2 = [WIDTH*4, HEIGHT];
+var page3 = [WIDTH, HEIGHT*4];
+
+pages.push(page1, page2, page3);
+
 
 
 function checkKey(e) {
@@ -43,24 +54,25 @@ function checkKey(e) {
 	else if (e.keyCode == '40')
 	{
 		// down arrow
-		page1 = [WIDTH, -HEIGHT];
+		/* page1 = [WIDTH, -HEIGHT];
 	   	page2 = [WIDTH*4, HEIGHT];
-		page3 = [WIDTH, HEIGHT];
+		page3 = [WIDTH, HEIGHT]; */
     }
 	else if (e.keyCode == '37')
 	{
 	   // left arrow
-		page1 = [WIDTH, HEIGHT];
+		/* page1 = [WIDTH, HEIGHT];
 	   	page2 = [WIDTH*4, HEIGHT];
-		page3 = [WIDTH, HEIGHT*4];
+		page3 = [WIDTH, HEIGHT*4]; */
     }
 	else if (e.keyCode == '39')
 	{
 	   // right arrow
+	   console.log("moving");
 	   movePageToCenter(page2);
-		page1 = [-WIDTH, HEIGHT];
+		/* page1 = [-WIDTH, HEIGHT];
 		page2 = [WIDTH, HEIGHT];
-		page3 = [-WIDTH, HEIGHT*2];
+		page3 = [-WIDTH, HEIGHT*2]; */
 		
     }
 
@@ -71,35 +83,41 @@ function movePageToCenter(pageToCenter)
 {
 	/*
 	if the x of the page that you want to go to
-	is greater than the center of the canvas
-	move all pages x down by 1
+	is greater than the pageCenter
+	move all pages x down/sideways by a number
 	*/
-	if(pageToCenter[0] > pageCenter[0])
+	while(pageToCenter[0] > pageCenter[0])
 	{
 		for(i = 0; i < pages.length; i++)
 		{
-			while(pages[i[0]] > pageCenter[0])
-			{
-				pages[i[0]] - 1;
-			}
+			pages[i][0] =  pages[i][0] - 0.2;
 		}
 	}
-	else if(pageToCenter[0] < pageCenter[0])
+	while(pageToCenter[0] < pageCenter[0])
 	{
+		for(i = 0; i < pages.length; i++)
+		{
+			pages[i][0] =  pages[i][0] - 0.2;
+		}
+	}
 
+	while(pageToCenter[1] > pageCenter[1])
+	{
+		for(i = 0; i < pages.length; i++)
+		{
+			pages[i][1] =  pages[i][1] - 0.2;
+		}
+	}
+	while(pageToCenter[1] < pageCenter[1])
+	{
+		for(i = 0; i < pages.length; i++)
+		{
+			pages[i][1] =  pages[i][1] - 0.2;
+		}
 	}
 }
 
-changeCanvasSize();
-var WIDTH = canvas.width;
-var HEIGHT = canvas.height;
 
-var pages = [];
-var page1 = [WIDTH, HEIGHT];
-var page2 = [WIDTH*4, HEIGHT];
-var page3 = [WIDTH, HEIGHT*4];
-
-pages.push(page1, page2, page3);
 
 function draw()
 {
@@ -108,6 +126,7 @@ function draw()
 	ctx.fillRect(0, 0, WIDTH, HEIGHT);
 	
 	document.onkeydown = checkKey;
+	//movePageToCenter();
 
 	//page 1 dot
 	ctx.beginPath();
