@@ -10,7 +10,12 @@
 </head>
 
 <body>
-    <div style="position: absolute; top: 0; left: 0; height: 0px; width: 0px; text-align: center; background-color: white;">
+	<div style="position: relative; top: 10%; left: 20%; height: 100%; width: 100%;">
+		<canvas id="gameCanvas" width="1280px" height="720px"></canvas>
+		<script src="./js/PhysicsGame/physicsToys.js"></script>		
+	</div>
+
+	<div style="position: absolute; top: 0; left: 0; height: 0px; width: 0px; text-align: center; background-color: white;">
 		<h1 style="position: relative; padding: 2%"></h1>
 		<ul>
 			<li><a href="index.html">Home</a></li>
@@ -29,11 +34,7 @@
 				</div>
 			</li>
 		</ul>
-	<div style="position: relative; top: 2%; left: 0;">
-	<canvas id="gameCanvas" width="1280px" height="720px"></canvas>
-	<script src="./js/PhysicsGame/physicsToys.js"></script>
-
-</div>
+	
 </div>
 </body>
 </html>

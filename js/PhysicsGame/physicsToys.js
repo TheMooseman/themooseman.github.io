@@ -6,7 +6,7 @@ var HEIGHT = canvas.height;
 
 //origins
 var xOrigin = WIDTH/2;
-var yOrigin = 30;
+var yOrigin = 100;
 
 //line length
 var r1 = 100;
@@ -206,7 +206,7 @@ function drawBackground()
 {
 	ctx.beginPath();
 	ctx.rect(0, 0, WIDTH, HEIGHT);
-	ctx.fillStyle = "#626e82";
+	ctx.fillStyle = 'white';
 	ctx.fill();
 	ctx.closePath();
 }
