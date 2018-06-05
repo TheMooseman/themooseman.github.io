@@ -13,12 +13,12 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: grey;
+    background-color: rgb(100, 149, 237);
 }
 
 li {
     float: left;
-    border-right: 1px solid lightcyan;
+    border-right: 1px solid white;
 }
 
 
@@ -42,7 +42,7 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: lightgrey;
+    background-color: rgb(252, 246, 246);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
