@@ -1,1 +1,1 @@
-React project for my github.io website.
+My personal developer portfolio site built using React with Material UI.

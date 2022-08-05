@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReorderIcon from '@material-ui/icons/Reorder';
-import { HashLink as Link } from 'react-router-hash-link';
+import { NavLink } from 'react-router-dom';
 import '../styles/Navbar.css'
 
 
@@ -23,8 +23,9 @@ function Navbar() {
             </button>
         </div>
         <div className="links">
-            <Link to="../#about" className='linkbtn'> Home </Link>
-            <Link to="../#skills" className='linkbtn'> Skills </Link>
+            <NavLink to="../pages/Home" className='linkbtn'> Home </NavLink>
+            <NavLink to="../pages/About" className='linkbtn'> About </NavLink>
+            <NavLink to="../pages/Experience" className='linkbtn'> Experience </NavLink>
             
         </div>
     </div>
