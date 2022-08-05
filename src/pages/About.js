@@ -1,6 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import GitHubIcon from "@material-ui/icons/GitHub";
 import "../styles/Home.css";
 import Footer from "../components/Footer";
 

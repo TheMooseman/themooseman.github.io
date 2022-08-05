@@ -1,7 +1,4 @@
 import React from "react";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import EmailIcon from "@material-ui/icons/Email";
-import GithubIcon from "@material-ui/icons/GitHub";
 import Footer from '../components/Footer'
 import "../styles/Home.css";
 
