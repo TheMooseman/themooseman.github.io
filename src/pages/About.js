@@ -7,13 +7,13 @@ function ProjectDisplay() {
     <motion.div className="about"
     initial={{ width: 0 }}
     animate={{ width: "100%" }}
-    exit={{ x: window.innerWidth }}
+    exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
     >
       <h2> About Me </h2>
-      <div className="prompt">
-        <p> I'm a software developer with a love for learning new technologies, 
-          developing useful tools, and creating responsive websites. </p>
-      </div>  
+      <span>
+        I'm a software developer with a love for learning new technologies, 
+          developing useful tools, and creating responsive websites.
+      </span>  
     </motion.div>
   );
 }

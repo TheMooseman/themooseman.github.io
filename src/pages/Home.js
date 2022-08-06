@@ -8,13 +8,13 @@ function Home() {
     className="home"
     initial={{ width: 0 }}
     animate={{ width: "100%" }}
-    exit={{ x: window.innerWidth }}
+    exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
     >
       <div className="homeInfo" id="homeInfo">
         <h2> Hi, My Name is Moose</h2>
-        <div className="prompt">
-          <p>This is my personal website where I show off the projects I've worked on.</p>      
-        </div>
+        <span>
+          This is my personal website where I show off the projects I've worked on.   
+        </span>
       </div>
     </motion.div>
   );
