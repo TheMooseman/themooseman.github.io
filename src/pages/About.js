@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 function ProjectDisplay() {
   return (
     <motion.div className="about"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    initial={{ width: 0 }}
+    animate={{ width: "100%" }}
+    exit={{ x: window.innerWidth }}
     >
       <h2> About Me </h2>
       <div className="prompt">
