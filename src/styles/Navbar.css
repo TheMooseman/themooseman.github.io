@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: top;
   color: white;
-  background-color: #fafafa;
+  background-color: #0e172c;
   opacity: .9;
 }
 
@@ -14,8 +14,8 @@
 }
 
 .linkBtn:hover{
-  background-color: #ddd;
-  color: black;
+  background-color: #5bb0e9;
+  color: white;
 }
 
 .toggleButton {
@@ -90,7 +90,6 @@
   overflow: hidden;
   background-color: transparent;
   position: center;
-  border-radius: 10px;
   opacity: 1;
   width: 100%;
 }
@@ -117,8 +116,8 @@
 }
 
 .topnav a:hover {
-  background-color: #192a50;
-  color: #192a50;
+  background-color: #5bb0e9;
+  color: white;
 }
 
 .active {

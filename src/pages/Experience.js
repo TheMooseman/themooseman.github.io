@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 function Experience() {
   return (
     <motion.div className="experience"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    initial={{ width: 0 }}
+    animate={{ width: "100%" }}
+    exit={{ x: window.innerWidth }}
     >
       <div className="skills" id="skills">
         <h1> Skills</h1>
