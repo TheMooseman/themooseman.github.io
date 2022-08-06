@@ -1,16 +1,19 @@
 import React from 'react';
-import Footer from '../components/Footer';
 import '../styles/Home.css';
+import { motion } from 'framer-motion';
 
 function Experience() {
   return (
-    <div className="experience">
+    <motion.div className="experience"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="skills" id="skills">
         <h1> Skills</h1>
         <span>JavaScript, C++, C#, TypeScript, Web, Games, Audio</span>
       </div>
-      <Footer />
-    </div>
+    </motion.div>
   );
 }
 

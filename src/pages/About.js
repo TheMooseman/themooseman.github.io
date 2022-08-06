@@ -1,17 +1,20 @@
 import React from "react";
 import "../styles/Home.css";
-import Footer from "../components/Footer";
+import { motion } from 'framer-motion';
 
 function ProjectDisplay() {
   return (
-    <div className="about">
+    <motion.div className="about"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h2> About Me </h2>
       <div className="prompt">
         <p> I'm a software developer with a love for learning new technologies, 
           developing useful tools, and creating responsive websites. </p>
-      </div>
-      <Footer/>
-    </div>
+      </div>  
+    </motion.div>
   );
 }
 

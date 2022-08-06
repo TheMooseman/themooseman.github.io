@@ -1,10 +1,12 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import {HashLink as Link } from 'react-router-hash-link';
 import Home from './pages/Home';
 import About from './pages/About';
 import Experience from './pages/Experience';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import AnimatedRoutes from './components/AnimatedRoutes';
 
 function App() {
   return (
@@ -14,14 +16,8 @@ function App() {
         <Link to={Home} />
         <Link to={About} />
         <Link to={Experience} />
-        <main>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path='/pages/Home' element={<Home />} />
-            <Route path='/pages/About' element={<About />} />
-            <Route path='/pages/Experience' element={<Experience />} />
-          </Routes>
-        </main>
+        <AnimatedRoutes className="main" />
+        <Footer/>
       </Router>
     </div>
   );
