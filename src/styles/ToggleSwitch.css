@@ -11,7 +11,7 @@ input {
 .toggle {
     display: flex;
     cursor: pointer;
-    width: 50px;
+    width: 45px;
     height: 25px;
     border-radius: 100px;
     background-color: #bfbfbf;
