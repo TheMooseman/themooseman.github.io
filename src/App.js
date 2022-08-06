@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AnimatedRoutes from './components/AnimatedRoutes';
 import { Helmet } from 'react-helmet';
+import '@fontsource/montserrat'
 
 function App() {
   return (

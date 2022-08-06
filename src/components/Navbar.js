@@ -26,7 +26,7 @@ function Navbar() {
             <NavLink to="../pages/Home" className='linkbtn'> Home </NavLink>
             <NavLink to="../pages/About" className='linkbtn'> About </NavLink>
             <NavLink to="../pages/Experience" className='linkbtn'> Experience </NavLink>
-            
+            <NavLink to="../pages/Projects" className='linkbtn'> Projects </NavLink>
         </div>
     </div>
 }
