@@ -7,10 +7,17 @@ import Experience from './pages/Experience';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AnimatedRoutes from './components/AnimatedRoutes';
+import { Helmet } from 'react-helmet';
 
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <meta charSet='utf-8' />
+        <title>Moose Dev</title>
+        <meta name='description' content='Moose Dev Portfolio' />
+        <link rel='canonical' href='https://themooseman.github.io' />
+      </Helmet>
       <Router>
         <Navbar />
         <Link to={Home} />

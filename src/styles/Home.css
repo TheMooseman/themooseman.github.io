@@ -75,6 +75,8 @@
 }
 
 span {
+  justify-content: center;
+  align-items: center;
   color: black;
   padding-left: 5%;
   padding-right: 5%;
