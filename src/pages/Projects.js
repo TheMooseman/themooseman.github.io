@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ToggleSwitch from '../components/ToggleSwitch';
 import "../styles/Projects.css";
 import ProjectCard from '../components/ProjectCard';
 
+
+
 function Projects() {
+  const [hockeyText, setHockey] = useState('Hockey');
+  const [notHockeyText, setNotHockey] = useState('Not Hockey');
+
+  function changeTitles(toggleVal) {
+    if(toggleVal){
+      setHockey('Not Hockey');
+      setNotHockey('Not Not Hockey')
+    } else {
+      setHockey('Hockey');
+      setNotHockey('Not Hockey')
+    }
+  }
+
   return (
     <motion.div 
     className="projects"
@@ -12,16 +28,22 @@ function Projects() {
     exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
     >
       <h1> My Personal Projects</h1>
+
+      <div className='toggleDiv'>
+        <p>incognito</p>
+        <ToggleSwitch onChange={(event) => changeTitles(event.target.checked)} />
+      </div>
+
       <div className="projectList">
         <ProjectCard 
           img='https://sportshub.cbsistatic.com/i/r/2022/08/05/b7f9b325-b2fe-4dcb-8571-6696b84de7ba/thumbnail/640x360/c79cfff48b368d0d7a6775d32b77d231/gettyimages-1191106966-2.jpg'
-          title='Hockey'
+          title={hockeyText}
           desc='Some hockey data.'
         />
 
         <ProjectCard 
           img='https://images-na.ssl-images-amazon.com/images/I/61yJfCrclqL._SY498_BO1,204,203,200_.jpg'
-          title='Not Hockey'
+          title={notHockeyText}
           desc='Definitely not hockey data.'
         />
 

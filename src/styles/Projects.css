@@ -60,3 +60,15 @@
   background-color: #5bb0e9;
   color: white;
 }
+
+.toggleDiv {
+  padding-bottom: 35px;
+  display: grid;
+  font-size: 12px;
+  justify-content: right;
+  padding-right: 10px;
+}
+
+.toggleDiv p {
+  padding: 0;
+}
