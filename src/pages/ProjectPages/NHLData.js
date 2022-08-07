@@ -32,9 +32,23 @@ export default class NHLData extends Component {
     })
   }
 
-  search(data) {
-    return data.teams.filter(row => row.teamName.toLowerCase().indexOf(this.state.q) > -1)
+  searchRow(rowData) {
+    
   }
+
+  search(data) {
+    let filteredData = data.teams.filter(row => {
+      return (
+      row.teamName.toLowerCase().indexOf(this.state.q) > -1 ||
+      row.venue.city.toLowerCase().indexOf(this.state.q) > -1 ||
+      row.division.name.toLowerCase().indexOf(this.state.q) > -1
+      );
+    })
+      
+      return filteredData;
+  }
+
+  
 
   render() {
     var { isLoaded, items, q } = this.state;
@@ -43,14 +57,17 @@ export default class NHLData extends Component {
     } else {
       return (
         <div className='nhlDiv'>
+          <h2 className='nhlH2'> Hockey Teams </h2>
             <input 
-            type='text' 
-            defaultValue='Search' 
+            type='text'
+            className='searchFilter'
+            placeholder='Search' 
             value={q} 
             onChange={e => this.onChangeHandler(e)}
             />
           <DataTable
-          tClassName={'nhlTable'} 
+          tDivClass={'nhlTableDiv'}
+          tTableClass={'nhlTable'}
           data={this.search(items)} 
           tHeader='' 
           tHeads={['Team', 'City', 'Conference', 'Timezone']}
