@@ -14,7 +14,7 @@ input {
     width: 45px;
     height: 25px;
     border-radius: 100px;
-    background-color: #bfbfbf;
+    background-color: #aaaaaa;
     position: absolute;
     transition: background-color 0.2s;
 }
