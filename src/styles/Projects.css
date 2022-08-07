@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #5bb0e9;
+  color: #5b7fa0;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@
 
 .projectCard {
   overflow: hidden;
-  box-shadow: 0 2px 20px lightgray;
+  box-shadow: 0 2px 20px #8EA0B0;
   border-radius: 10px;
   flex-direction: column;
   justify-content: space-between;
@@ -46,19 +46,19 @@
 
 .cardBtn {
   cursor: pointer;
-  color: #5bb0e9;
+  color: #5b7fa0;
   padding: 1rem;
   font-weight: bold;
   font-size: 1rem;
   margin: 1rem;
-  border: 2px solid #5bb0e9;
+  border: 2px solid #5b7fa0;
   border-radius: 10px;
   transition: background 200ms ease-in, color 200ms ease-in;
 }
 
 .cardBtn:hover {
   cursor: pointer;
-  background-color: #5bb0e9;
+  background-color: #5b7fa0;
   color: white;
 }
 

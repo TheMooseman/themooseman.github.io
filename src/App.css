@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background: #fafafa;
+  background: #c0c0c0;
   height: 100%;
   font-family: "Montserrat";
   overflow: auto;
@@ -9,7 +9,7 @@
 body {
   padding: 0;
   margin: 0;
-  background: #fafafa;
+  background: #c0c0c0;
   overflow: auto;
 }
 
@@ -21,9 +21,9 @@ body {
 h2 {
   margin-left: 25%;
   margin-right: 25%;
-  color: #5bb0e9;
+  color: #5b7fa0;
 }
 
 h1 {
-  color: #5bb0e9;
+  color: #5b7fa0;
 }
