@@ -3,14 +3,14 @@
   background: #fafafa;
   height: 100%;
   font-family: "Montserrat";
-  overflow: scroll;
+  overflow: auto;
 }
 
 body {
   padding: 0;
   margin: 0;
   background: #fafafa;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .main {
