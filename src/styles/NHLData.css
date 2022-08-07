@@ -3,7 +3,47 @@
     margin-top: 10%;
     margin-left: 25%;
     position: absolute;
-    overflow: hidden;
+    overflow: scroll;
     max-width: 60%;
     max-height: 50%;
+}
+
+.nhlTable {
+    margin-left: 25%;
+    margin-right: 25%;
+    overflow: scroll;
+    display: flex;
+    width: 75%;
+    height: 500px;
+    
+}
+
+thead tr {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+  
+td {
+    width: 25%;
+    text-align: center;
+    padding: 8px;
+    font-size: 18px;
+}
+
+tr, th {
+    border: 1px solid black;
+}
+
+th {
+    border-radius: 10px;
+    background-color: rgb(117, 201, 250);
+}
+
+tbody {
+    width: 100%;
+}
+
+.nhlTable::-webkit-scrollbar {
+    display: none;   
 }

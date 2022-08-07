@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ToggleSwitch from '../components/ToggleSwitch';
 import NHLProj from './ProjectPages/NHLData';
@@ -9,7 +9,6 @@ import ProjectCard from '../components/ProjectCard';
 
 
 function Projects() {
-  const location = useLocation();
   const [hockeyText, setHockey] = useState('Hockey');
   const [notHockeyText, setNotHockey] = useState('Not Hockey');
 

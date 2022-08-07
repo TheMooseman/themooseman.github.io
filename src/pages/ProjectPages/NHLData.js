@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core';
+import { Scrollbars } from 'react-custom-scrollbars';
 import '../../styles/NHLData.css';
 const NHLApi = 'https://statsapi.web.nhl.com/api/v1/teams';
 
@@ -26,40 +25,39 @@ export default class NHLData extends Component {
     });
   }
 
-  
   render() {
     var { isLoaded, items } = this.state;
-
     if(!isLoaded) {
       return <div> Loading... </div>;
     } else {
       return (
-        <div className='nhldata'>
-        <TableContainer component={Paper} sx={{ eight: '100px', maxWidth: '100px' }}>
-          <Table aria-label='simple table' stickyHeader sx={{ height: 'max-content', backgroundColor: 'yellow' }}>
-            <TableHead>
-              <TableRow >
-                <TableCell > Team </TableCell>
-                <TableCell> City </TableCell>
-                <TableCell> Conference </TableCell>
-                <TableCell> Timezone </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-                {
-                  items.teams.map(row => (
-                    <TableRow key={row.id}>
-                      <TableCell>{row.teamName}</TableCell>
-                      <TableCell>{row.venue.city}</TableCell>
-                      <TableCell>{row.division.name}</TableCell>
-                      <TableCell>{row.venue.timeZone.offset + ' GMT'}</TableCell>
-                    </TableRow>
-                  ))
-                }
-              </TableBody>
-            
-          </Table>
-        </TableContainer>
+        <div >
+          <h1>Teams of the NHL</h1>
+          <table className='nhlTable'>
+          <Scrollbars style={{ width: 500, height: 300, justifyContent: 'center', justifySelf: 'center' }}>
+            <thead>
+              <tr>
+                <th> Team </th>
+                <th> City </th>
+                <th> Conference </th>
+                <th> Timezone </th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                 items.teams.map(row => ( 
+                  <tr>
+                    <td>{row.teamName}</td>
+                    <td>{row.venue.city}</td>
+                    <td>{row.division.name}</td>
+                    <td>{row.venue.timeZone.offset + ' GMT'}</td>
+                  </tr>
+                 ))
+              }
+            </tbody>
+            </Scrollbars>
+          </table>
+          
         </div>
       )
     }

@@ -3,6 +3,7 @@
   background: #fafafa;
   height: 100%;
   font-family: "Montserrat";
+  
 }
 
 body {
@@ -15,4 +16,14 @@ body {
 .main {
   height: 75%;
   flex: 1;
+}
+
+h2 {
+  margin-left: 25%;
+  margin-right: 25%;
+  color: #5bb0e9;
+}
+
+h1 {
+  color: #5bb0e9;
 }
