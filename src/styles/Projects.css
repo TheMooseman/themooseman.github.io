@@ -47,6 +47,7 @@
 .cardBtn {
   cursor: pointer;
   color: #5b7fa0;
+  background-color: #c0c0c0;
   padding: 1rem;
   font-weight: bold;
   font-size: 1rem;
@@ -59,7 +60,7 @@
 .cardBtn:hover {
   cursor: pointer;
   background-color: #5b7fa0;
-  color: white;
+  color: #c0c0c0;
 }
 
 .toggleDiv {
