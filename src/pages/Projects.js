@@ -42,7 +42,8 @@ function Projects() {
 
       <div className="projectList">
         <ProjectCard
-          projLoc='./ProjectPages/NHLData' 
+          projLoc='./ProjectPages/NHLData'
+          github='https://github.com/TheMooseman/themooseman.github.io/blob/master/src/pages/ProjectPages/NHLData.js'
           img='https://sportshub.cbsistatic.com/i/r/2022/08/05/b7f9b325-b2fe-4dcb-8571-6696b84de7ba/thumbnail/640x360/c79cfff48b368d0d7a6775d32b77d231/gettyimages-1191106966-2.jpg'
           title={hockeyText}
           desc='Some hockey data.'

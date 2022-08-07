@@ -38,8 +38,8 @@ export default class NHLData extends Component {
         <TableContainer component={Paper} sx={{ eight: '100px', maxWidth: '100px' }}>
           <Table aria-label='simple table' stickyHeader sx={{ height: 'max-content', backgroundColor: 'yellow' }}>
             <TableHead>
-              <TableRow style={{ backgroundColor: 'grey'}}>
-                <TableCell style={{ font: 'bold'}}> Team </TableCell>
+              <TableRow >
+                <TableCell > Team </TableCell>
                 <TableCell> City </TableCell>
                 <TableCell> Conference </TableCell>
                 <TableCell> Timezone </TableCell>

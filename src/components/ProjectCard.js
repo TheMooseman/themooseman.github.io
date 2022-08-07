@@ -11,7 +11,9 @@ function ProjectCard(props) {
         <a href={props.projLoc}>
         <button className='cardBtn'>Live</button>
         </a>
+        <a href={props.github}>
         <button className='cardBtn'>Github</button>
+        </a>
     </div>
   )
 }
