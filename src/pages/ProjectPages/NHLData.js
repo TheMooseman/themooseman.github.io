@@ -24,6 +24,7 @@ export default class NHLData extends Component {
         items: json,
       })
     });
+    
   }
 
   onChangeHandler(e) {
@@ -32,11 +33,8 @@ export default class NHLData extends Component {
     })
   }
 
-  searchRow(rowData) {
-    
-  }
-
   search(data) {
+    
     let filteredData = data.teams.filter(row => {
       return (
       row.teamName.toLowerCase().indexOf(this.state.q) > -1 ||
@@ -44,14 +42,33 @@ export default class NHLData extends Component {
       row.division.name.toLowerCase().indexOf(this.state.q) > -1
       );
     })
-      
-      return filteredData;
+    filteredData = this.prepareData(filteredData);
+    return filteredData;
   }
 
+  prepareData(data) {
+    this.teamNames = [];
+    this.teamDivs = [];
+    this.teamVenues = [];
+    this.teamTimes = [];
+    let i = 0;
+    let retData = [];
+    while(data.length > i) {
+      let team = data[i];
+      retData.push([
+        team.teamName,
+        team.venue.city,
+        team.division.name,
+        team.venue.timeZone.offset + " GMT"
+      ])
+      i++;
+      }
+    return(retData);
+  }
   
 
   render() {
-    var { isLoaded, items, q } = this.state;
+    var { isLoaded, items, q, dataKeys } = this.state;
     if(!isLoaded) {
       return <div className='nhlDiv'> Loading... </div>;
     } else {
@@ -69,7 +86,7 @@ export default class NHLData extends Component {
           tDivClass={'nhlTableDiv'}
           tTableClass={'nhlTable'}
           data={this.search(items)} 
-          tHeader='' 
+          tHeader=''
           tHeads={['Team', 'City', 'Conference', 'Timezone']}
           />
         </div>

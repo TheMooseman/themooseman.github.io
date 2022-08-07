@@ -1,7 +1,7 @@
 import React from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 
-export default function DataTable({ data, tHeader, tHeads, tDivClass, tTableClass, tSearchClass}) {
+export default function DataTable({ data, tHeader, tHeads, tDivClass, tTableClass}) {
 
   return (
     <div className={tDivClass}>
@@ -18,17 +18,17 @@ export default function DataTable({ data, tHeader, tHeads, tDivClass, tTableClas
               </tr>
             </thead>
             <tbody>
-              {
-                
-                data.map(row => ( 
-                <tr>
-                    <td>{row.teamName}</td>
-                    <td>{row.venue.city}</td>
-                    <td>{row.division.name}</td>
-                    <td>{row.venue.timeZone.offset + ' GMT'}</td>
-                </tr>  
+            {
+                data.map(row => (
+                    <tr>
+                        {
+                            row.map((col, index) => (
+                                <td>{col}</td>
+                            ))
+                        }
+                    </tr>
                 ))
-              }
+            }
             </tbody>
             </Scrollbars>
           </table>
