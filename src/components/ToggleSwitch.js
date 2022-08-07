@@ -3,8 +3,8 @@ import '../styles/ToggleSwitch.css';
 
 function ToggleSwitch({ onChange }) {
   return (
-    <label>
-    <input type='checkbox' onChange={onChange}/>
+    <label className='toggleLabel'>
+    <input type='checkbox' className='toggleComp' onChange={onChange}/>
     <span className='toggle' />
     </label>
   )

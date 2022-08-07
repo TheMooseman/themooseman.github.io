@@ -1,5 +1,6 @@
+import { getSuggestedQuery } from '@testing-library/react';
 import React, { Component } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars';
+import DataTable from '../../components/DataTable';
 import '../../styles/NHLData.css';
 const NHLApi = 'https://statsapi.web.nhl.com/api/v1/teams';
 
@@ -10,6 +11,7 @@ export default class NHLData extends Component {
     this.state = {
       items: [],
       isLoaded: false,
+      q: '',
     }
   }
 
@@ -25,39 +27,35 @@ export default class NHLData extends Component {
     });
   }
 
+  onChangeHandler(e) {
+    this.setState({
+      q: e.target.value,
+    })
+  }
+
+  search(data) {
+    return data.teams.filter(row => row.teamName.toLowerCase().indexOf(this.state.q) > -1)
+  }
+
   render() {
-    var { isLoaded, items } = this.state;
+    var { isLoaded, items, q } = this.state;
     if(!isLoaded) {
-      return <div> Loading... </div>;
+      return <div className='nhlDiv'> Loading... </div>;
     } else {
       return (
-        <div >
-          <h1>Teams of the NHL</h1>
-          <table className='nhlTable'>
-          <Scrollbars style={{ width: 500, height: 300, justifyContent: 'center', justifySelf: 'center' }}>
-            <thead>
-              <tr>
-                <th> Team </th>
-                <th> City </th>
-                <th> Conference </th>
-                <th> Timezone </th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                 items.teams.map(row => ( 
-                  <tr>
-                    <td>{row.teamName}</td>
-                    <td>{row.venue.city}</td>
-                    <td>{row.division.name}</td>
-                    <td>{row.venue.timeZone.offset + ' GMT'}</td>
-                  </tr>
-                 ))
-              }
-            </tbody>
-            </Scrollbars>
-          </table>
-          
+        <div className='nhlDiv'>
+            <input 
+            type='text' 
+            defaultValue='Search' 
+            value={q} 
+            onChange={e => this.onChangeHandler(e)}
+            />
+          <DataTable
+          tClassName={'nhlTable'} 
+          data={this.search(items)} 
+          tHeader='' 
+          tHeads={['Team', 'City', 'Conference', 'Timezone']}
+          />
         </div>
       )
     }

@@ -11,8 +11,8 @@ function Home() {
     exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
     >
       <div className="homeInfo" id="homeInfo">
-        <h2> Hi, My Name is Moose</h2>
-        <span>
+        <h2 className='dh2'> Hi, My Name is Moose</h2>
+        <span className='homeSpan'>
           This is my personal website where I show off the projects I've worked on.   
         </span>
       </div>

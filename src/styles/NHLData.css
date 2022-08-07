@@ -1,49 +1,60 @@
 .nhldata {
-    display: flex;
-    margin-top: 10%;
-    margin-left: 25%;
-    position: absolute;
-    overflow: scroll;
-    max-width: 60%;
-    max-height: 50%;
+
 }
 
-.nhlTable {
-    margin-left: 25%;
-    margin-right: 25%;
-    overflow: scroll;
-    display: flex;
-    width: 75%;
-    height: 500px;
-    
-}
 
-thead tr {
+.nhlDiv thead tr {
     position: sticky;
     top: 0;
     z-index: 10;
 }
   
-td {
+.nhlDiv td {
     width: 25%;
     text-align: center;
     padding: 8px;
     font-size: 18px;
 }
 
-tr, th {
+.nhlDiv tr, th {
     border: 1px solid black;
 }
 
-th {
+.nhlDiv th {
     border-radius: 10px;
     background-color: rgb(117, 201, 250);
 }
 
-tbody {
+.nhlDiv tbody {
     width: 100%;
+}
+
+.nhlTable {
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    justify-items: left;
+    margin-left: 25%;
+    margin-right: 25%;
+    overflow: scroll;
+    width: 75%;
+    height: 500px;
 }
 
 .nhlTable::-webkit-scrollbar {
     display: none;   
+}
+
+.searchFilter {
+    font-size: 18px;
+}
+
+.nhldiv {
+    align-content: left;
+    justify-content: left;
+
+}
+
+.nhlDiv input {
+    margin-top: 5%;
 }

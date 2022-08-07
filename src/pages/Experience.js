@@ -12,8 +12,8 @@ function Experience() {
     exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
     >
       <div className="skills" id="skills">
-        <h1> Skills</h1>
-        <span>JavaScript, C++, C#, TypeScript, Web, Games, Audio</span>
+        <h1 className='dh1'> Skills</h1>
+        <span className='homeSpan'>JavaScript, C++, C#, TypeScript, Web, Games, Audio</span>
         <a href='https://drive.google.com/file/d/1U5Lf-A6zvvcJ-X-o4OikQShZnAuqq483/view?usp=sharing'>
         <Document
           file={"https://drive.google.com/file/d/1U5Lf-A6zvvcJ-X-o4OikQShZnAuqq483/view?usp=sharing"}
