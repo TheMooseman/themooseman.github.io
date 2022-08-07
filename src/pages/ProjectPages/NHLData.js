@@ -1,4 +1,3 @@
-import { getSuggestedQuery } from '@testing-library/react';
 import React, { Component } from 'react';
 import DataTable from '../../components/DataTable';
 import '../../styles/NHLData.css';

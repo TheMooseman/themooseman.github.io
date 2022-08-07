@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 
 export default function DataTable({ data, tHeader, tHeads, tClassName, tSearchClass}) {
