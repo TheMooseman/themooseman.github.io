@@ -1,0 +1,9 @@
+.nhldata {
+    display: flex;
+    margin-top: 10%;
+    margin-left: 25%;
+    position: absolute;
+    overflow: hidden;
+    max-width: 60%;
+    max-height: 50%;
+}

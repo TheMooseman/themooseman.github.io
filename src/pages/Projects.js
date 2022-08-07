@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import ToggleSwitch from '../components/ToggleSwitch';
+import NHLProj from './ProjectPages/NHLData';
 import "../styles/Projects.css";
 import ProjectCard from '../components/ProjectCard';
 
 
 
 function Projects() {
+  const location = useLocation();
   const [hockeyText, setHockey] = useState('Hockey');
   const [notHockeyText, setNotHockey] = useState('Not Hockey');
 
@@ -27,6 +30,9 @@ function Projects() {
     animate={{ width: "100%" }}
     exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
     >
+      <Routes location ={location} key={location.pathname}>
+        <Route path='/pages/ProjectPages' element={<NHLProj />} />
+      </Routes>
       <h1> My Personal Projects</h1>
 
       <div className='toggleDiv'>
@@ -35,7 +41,8 @@ function Projects() {
       </div>
 
       <div className="projectList">
-        <ProjectCard 
+        <ProjectCard
+          projLoc='./ProjectPages/NHLData' 
           img='https://sportshub.cbsistatic.com/i/r/2022/08/05/b7f9b325-b2fe-4dcb-8571-6696b84de7ba/thumbnail/640x360/c79cfff48b368d0d7a6775d32b77d231/gettyimages-1191106966-2.jpg'
           title={hockeyText}
           desc='Some hockey data.'

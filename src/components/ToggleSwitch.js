@@ -5,7 +5,7 @@ function ToggleSwitch({ onChange }) {
   return (
     <label>
     <input type='checkbox' onChange={onChange}/>
-    <span class='toggle' />
+    <span className='toggle' />
     </label>
   )
 }
