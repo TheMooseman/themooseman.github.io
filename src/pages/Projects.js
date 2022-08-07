@@ -30,7 +30,7 @@ function Projects() {
     animate={{ width: "100%" }}
     exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
     >
-      <Routes location ={location} key={location.pathname}>
+      <Routes >
         <Route path='/pages/ProjectPages' element={<NHLProj />} />
       </Routes>
       <h1> My Personal Projects</h1>
