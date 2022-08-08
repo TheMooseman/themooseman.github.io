@@ -14,16 +14,14 @@ function Navbar() {
     }, [location]);
 
     return <div className="topnav" id={expandNavBar ? "open" : "close"}>
-        <div className="toggleButton">
-            <button 
-                onClick={() => {
-                    setExpandNavbar((prev) => !prev);
-                }}>
-                <ReorderIcon />
-            </button>
+        <div className='title'>
+            <h1 className='dh1'> Skyler Moosman </h1> 
+            <br></br>
+            <span className='titleSpan'>
+                Front End Developer
+            </span>
         </div>
         <div className="links">
-            <NavLink to="../pages/Home" className='linkbtn'> Home </NavLink>
             <NavLink to="../pages/About" className='linkbtn'> About </NavLink>
             <NavLink to="../pages/Experience" className='linkbtn'> Experience </NavLink>
             <NavLink to="../pages/Projects" className='linkbtn'> Projects </NavLink>

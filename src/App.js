@@ -22,14 +22,12 @@ function App() {
       </Helmet>
       <Router>
         <div className='wrapper'>
-        <Navbar />
         <div className='bodyWrapper'>
         <Link to={Home} />
         <Link to={About} />
         <Link to={Experience} />
         <AnimatedRoutes className="main" />
         </div>
-        <Footer/>
         </div>
       </Router>
     </div>

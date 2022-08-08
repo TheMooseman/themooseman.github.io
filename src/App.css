@@ -1,6 +1,5 @@
 .App {
-  text-align: center;
-  background: #c0c0c0;
+  background: #252525;
   font-family: "Montserrat";
   height: 100%;
   width: 100%;
@@ -15,13 +14,8 @@
   width: 100vw;
   padding: 0;
   margin: 0;
-  background: #c0c0c0;
+  background: #252525;
   overflow: hidden;
-}
-
-.main {
-  height: 75%;
-  flex: 1;
 }
 
 .wrapper {
@@ -36,22 +30,12 @@
 }
 
 .bodyWrapper {
-  margin: auto;
+  height: 100vh;
+  width: 100vw;
   overflow: scroll;
-  margin-bottom: 100px;
   clear: both;
 }
 
 .bodyWrapper::-webkit-scrollbar {
   display: none;
-}
-
-h2 {
-  margin-left: 25%;
-  margin-right: 25%;
-  color: #5b7fa0;
-}
-
-h1 {
-  color: #5b7fa0;
 }
