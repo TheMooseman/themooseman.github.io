@@ -73,8 +73,9 @@ export default class NHLData extends Component {
       return <div className='nhlDiv'> Loading... </div>;
     } else {
       return (
+        
         <div className='nhlDiv'>
-          <h2 className='nhlH2'> Hockey Teams </h2>
+          <h1 className='dh1'> Hockey Teams </h1>
             <input 
             type='text'
             className='searchFilter'

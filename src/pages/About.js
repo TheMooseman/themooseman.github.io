@@ -5,11 +5,12 @@ import { motion } from 'framer-motion';
 function ProjectDisplay() {
   return (
     <motion.div className="home"
-    initial={{ width: 0 }}
-    animate={{ width: "100%" }}
-    exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
+    initial={{ opacity:0, duration: 1 }}
+    animate={{ opacity:1, duration: 3 }}
+    transition={{ opacity: 1, duration: 2}}
+    exit={{ opacity:0, duration: 1.5 }}
     >
-      <div className='skills'>
+      <div className='home'>
       <h1 className='dh1'> About Me </h1>
       <span className="homeSpan">
         I'm a software developer with a love for learning new technologies, 

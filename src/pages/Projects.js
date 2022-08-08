@@ -25,9 +25,10 @@ function Projects() {
   return (
     <motion.div 
     className="projects"
-    initial={{ width: 0 }}
-    animate={{ width: "100%" }}
-    exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
+    initial={{ opacity:0, duration: 1 }}
+    animate={{ opacity:1, duration: 3 }}
+    transition={{ opacity: 1, duration: 2}}
+    exit={{ opacity:0, duration: 1.5 }}
     >
       <Routes >
         <Route path='/pages/ProjectPages' element={<NHLProj />} />

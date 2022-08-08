@@ -38,6 +38,7 @@
     margin-top: -2%;
     justify-content: center;
     justify-items: center;
+    margin-bottom: 5vh;
     
     overflow: scroll;
     width: 75%;
@@ -63,7 +64,7 @@
 }
 
 .nhldiv {
-    display: grid;
+    display: flex;
 }
 
 .nhlH2 {

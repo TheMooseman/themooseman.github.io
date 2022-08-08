@@ -1,8 +1,13 @@
 .home {
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 70vh;
+  justify-content: center;
   align-items: center;
-  color: #fafafa;
+  flex-direction: column;
+  color: #5b7fa0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .homeInfo {
@@ -79,21 +84,4 @@
   padding-right: 5%;
   list-style: none;
   font-size: 35px;
-}
-
-@media only screen and (max-width: 600px) {
-  .about h2 {
-    font-size: 40px;
-  }
-
-  .skills {
-    text-align: center;
-  }
-  .list {
-    padding: 0;
-  }
-
-  .skills h2 {
-    font-size: 30px;
-  }
 }

@@ -2,12 +2,21 @@
   text-align: center;
   background: #c0c0c0;
   font-family: "Montserrat";
+  height: 100%;
+  width: 100%;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
 }
 
 .appBody {
+  height: 100vh;
+  width: 100vw;
   padding: 0;
   margin: 0;
   background: #c0c0c0;
+  overflow: hidden;
 }
 
 .main {
@@ -16,16 +25,25 @@
 }
 
 .wrapper {
-  height: 100vh;
-  width: 100vh;
+  height: 100%;
+  width: 100%;
   display:contents;
   overflow: auto;
 }
 
+.wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .bodyWrapper {
   margin: auto;
+  overflow: scroll;
   margin-bottom: 100px;
   clear: both;
+}
+
+.bodyWrapper::-webkit-scrollbar {
+  display: none;
 }
 
 h2 {
