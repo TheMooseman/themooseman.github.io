@@ -45,13 +45,13 @@ function Projects() {
           github='https://github.com/TheMooseman/themooseman.github.io/blob/master/src/pages/ProjectPages/NHLData.js'
           img='https://sportshub.cbsistatic.com/i/r/2022/08/05/b7f9b325-b2fe-4dcb-8571-6696b84de7ba/thumbnail/640x360/c79cfff48b368d0d7a6775d32b77d231/gettyimages-1191106966-2.jpg'
           title={hockeyText}
-          desc='Some hockey data.'
+          desc='Data from the NHL API that allows you to text search team names, locations, and their venues.'
         />
 
         <ProjectCard 
           img='https://images-na.ssl-images-amazon.com/images/I/61yJfCrclqL._SY498_BO1,204,203,200_.jpg'
           title={notHockeyText}
-          desc='Definitely not hockey data.'
+          desc='Definitely not hockey data.  Just a placeholder.'
         />
 
       </div>
