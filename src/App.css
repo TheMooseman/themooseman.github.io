@@ -1,21 +1,31 @@
 .App {
   text-align: center;
   background: #c0c0c0;
-  height: 100%;
   font-family: "Montserrat";
-  overflow: auto;
 }
 
 .appBody {
   padding: 0;
   margin: 0;
   background: #c0c0c0;
-  overflow: auto;
 }
 
 .main {
   height: 75%;
   flex: 1;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100vh;
+  display:contents;
+  overflow: auto;
+}
+
+.bodyWrapper {
+  margin: auto;
+  margin-bottom: 100px;
+  clear: both;
 }
 
 h2 {

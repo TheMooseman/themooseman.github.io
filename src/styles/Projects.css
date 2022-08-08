@@ -1,6 +1,6 @@
 .projects {
-  width: 100%;
-  height: auto;
+  width: 100vh;
+  height: 80vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;

@@ -6,7 +6,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 function Experience() {
   return (
-    <motion.div className="experience"
+    <motion.div className="home"
     initial={{ width: 0 }}
     animate={{ width: "100%" }}
     exit={{ x: window.innerWidth, transition: {duration: 0.01} }}
