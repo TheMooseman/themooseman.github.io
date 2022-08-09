@@ -22,9 +22,16 @@ function Navbar() {
             </span>
         </div>
         <div className="links">
-            <NavLink to="../pages/About" className='linkbtn'> About </NavLink>
-            <NavLink to="../pages/Experience" className='linkbtn'> Experience </NavLink>
-            <NavLink to="../pages/Projects" className='linkbtn'> Projects </NavLink>
+            <NavLink to="../pages/About" className='linkbtn'
+                style={isActive => ({
+                    color: isActive ? '#FFB800' : 'white'
+                })}
+            >
+                <a>About</a> 
+            </NavLink>
+            <NavLink to="../pages/Projects" className='linkbtn'>
+                <a>Projects</a>
+                </NavLink>
         </div>
     </div>
 }

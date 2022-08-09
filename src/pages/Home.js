@@ -13,7 +13,6 @@ function Home() {
     transition={{ opacity: 1, duration: 2}}
     exit={{ opacity:0, duration: 1.5 }}
     >
-      <Navbar/>
     </motion.div>
   );
 }

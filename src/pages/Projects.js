@@ -33,8 +33,6 @@ function Projects() {
       <Routes >
         <Route path='/pages/ProjectPages' element={<NHLProj />} />
       </Routes>
-      <h1> My Personal Projects</h1>
-
       <div className='toggleDiv'>
         <p>incognito</p>
         <ToggleSwitch onChange={(event) => changeTitles(event.target.checked)} />

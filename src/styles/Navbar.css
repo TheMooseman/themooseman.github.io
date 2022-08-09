@@ -4,13 +4,13 @@
 }
 
 .links {
-  margin-left: 55%;
-  width: 50%;
-  transform: translateY(-175%);
+  float: right;
+  transform: translateY(-135%);
   display: flex;
   color: white;
-  opacity: .9;
 }
+
+
 
 .title {
   display: flex;
@@ -18,8 +18,6 @@
   transform: translateY(5%);
   flex-direction: column;
   width: 90%;
-  margin: 0;
-  padding: 0;
 }
 
 .titleSpan {
@@ -35,13 +33,35 @@
   color: #FFB800;
 }
 
-.linkBtn{
+.title .dh1 {
+  padding-left: 10px;
+}
+
+.linkBtn a{
+  display: inline-block;
+  padding-bottom: 0.25rem; /* defines the space between text and underline */
+  position: relative;
   opacity: 1;
 }
 
 .linkBtn:hover{
-  background-color: #44617D;
+  cursor: default;
   color: white;
+}
+
+.linkBtn::before a {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(0, 255, 0);
+  transition: width 0.25s ease-out;
+}
+
+.linkBtn:hover::before a{
+  width: 100%;
 }
 
 .topnav a {
@@ -52,12 +72,12 @@
   display: block;
 }
 
-.topnav a:hover {
-  background-color: #44617D;
-  color: white;
-}
 
-.active {
+@media screen and (max-width: 500px) {
+  .links {
+    transform: translateY(-60%);
+    float: none;
+    display: inline-flex;
 
-  color: white;
+  }
 }

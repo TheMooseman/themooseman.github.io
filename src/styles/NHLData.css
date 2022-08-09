@@ -17,8 +17,8 @@
 
 .nhlDiv th {
     border-radius: 1px;
-    background-color: #5b7fa0;
-    color: white;
+    background-color: #FFB800;
+    color: black;
     text-decoration: none;
 }
 
@@ -43,6 +43,7 @@
     overflow: scroll;
     width: 75%;
     height: 500px;
+    color: white;
 }
 
 .nhlTable::-webkit-scrollbar {
@@ -51,7 +52,7 @@
 
 .searchFilter {
     font-size: 16px;
-    margin-right: 45%;
+    margin-left: 12%;
     margin-bottom: 0%;
     padding-bottom: 0;
     border: 1px solid grey;

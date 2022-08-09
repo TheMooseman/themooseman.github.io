@@ -23,6 +23,7 @@ function App() {
       <Router>
         <div className='wrapper'>
         <div className='bodyWrapper'>
+          <Navbar/>
         <Link to={Home} />
         <Link to={About} />
         <Link to={Experience} />
