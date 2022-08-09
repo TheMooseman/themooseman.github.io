@@ -24,14 +24,10 @@ function Navbar() {
         </div>
 
         <div className="links">
-            <NavLink to="../pages/About" className='linkbtn'
-                style={isActive => ({
-                    color: isActive ? '#FFB800' : 'white'
-                })}
-            >
+            <NavLink to="../pages/About" className='linkBtn'>
                 <a>About</a> 
             </NavLink>
-            <NavLink to="../pages/Projects" className='linkbtn'>
+            <NavLink to="../pages/Projects" className='linkBtn'>
                 <a>Projects</a>
             </NavLink>
             
@@ -42,7 +38,7 @@ function Navbar() {
             <GithubIcon />
             <LinkedInIcon />
         </div>
-        
+
     </div>
 }
 

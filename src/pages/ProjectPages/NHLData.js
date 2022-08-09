@@ -68,7 +68,7 @@ export default class NHLData extends Component {
   
 
   render() {
-    var { isLoaded, items, q, dataKeys } = this.state;
+    var { isLoaded, items, q } = this.state;
     if(!isLoaded) {
       return <div className='nhlDiv'> Loading... </div>;
     } else {

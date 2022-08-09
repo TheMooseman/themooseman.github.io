@@ -5,10 +5,10 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Experience from './pages/Experience';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import AnimatedRoutes from './components/AnimatedRoutes';
 import { Helmet } from 'react-helmet';
 import '@fontsource/montserrat'
+import ParticleBackground from './components/particleBackground';
 
 function App() {
 
@@ -22,8 +22,9 @@ function App() {
       </Helmet>
       <Router>
         <div className='wrapper'>
+        <ParticleBackground></ParticleBackground>
         <div className='bodyWrapper'>
-          <Navbar/>
+        <Navbar/>
         <Link to={Home} />
         <Link to={About} />
         <Link to={Experience} />

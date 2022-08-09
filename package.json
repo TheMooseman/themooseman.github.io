@@ -21,7 +21,9 @@
     "react-scripts": "5.0.1",
     "react-toggle-component": "^3.0.8",
     "react-toggle-slider": "^0.4.0",
+    "react-tsparticles": "^2.1.4",
     "react-vertical-timeline-component": "^3.5.2",
+    "tsparticles": "^2.1.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
