@@ -34,7 +34,7 @@ function Projects() {
         <Route path='/pages/ProjectPages' element={<NHLProj />} />
       </Routes>
       <div className='toggleDiv'>
-        <p>incognito</p>
+        <p className='togLabel'>incognito</p>
         <ToggleSwitch onChange={(event) => changeTitles(event.target.checked)} />
       </div>
 

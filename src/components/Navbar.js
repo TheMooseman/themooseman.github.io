@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import ReorderIcon from '@material-ui/icons/Reorder';
 import { NavLink } from 'react-router-dom';
+import GithubIcon from "@material-ui/icons/GitHub"
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import '../styles/Navbar.css'
 
 
@@ -21,6 +22,7 @@ function Navbar() {
                 Front End Developer
             </span>
         </div>
+
         <div className="links">
             <NavLink to="../pages/About" className='linkbtn'
                 style={isActive => ({
@@ -31,8 +33,16 @@ function Navbar() {
             </NavLink>
             <NavLink to="../pages/Projects" className='linkbtn'>
                 <a>Projects</a>
-                </NavLink>
+            </NavLink>
+            
+            
         </div>
+
+        <div className='socialMedia'>
+            <GithubIcon />
+            <LinkedInIcon />
+        </div>
+        
     </div>
 }
 

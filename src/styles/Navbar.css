@@ -73,11 +73,27 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 501px) {
   .links {
     transform: translateY(-60%);
     float: none;
     display: inline-flex;
+  }
 
+  .socialMedia {
+    position: relative;
+    transform: translateX(75%) translateY(-600%);
+    color: white;
+    margin: 5px;
+    cursor: pointer;
   }
 }
+
+
+.socialMedia {
+
+  color: white;
+  margin: 5px;
+  cursor: pointer;
+}
+
