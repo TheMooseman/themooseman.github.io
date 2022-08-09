@@ -14,7 +14,7 @@ function ProjectDisplay() {
       <div className='home'>
       <h1 className='abouth1'> About Me </h1>
       <span className="aboutSpan">
-        Moose is software developer whose shipped code to millions of users 
+        Moose is software developer who's shipped code to millions of users 
         and continues to grow his love for new technologies.  
         You can find him trying out the latest tech, hiking, 
         and spending time with his two dogs.
