@@ -11,7 +11,7 @@ function ProjectDisplay() {
     transition={{ opacity: 1, duration: 2}}
     exit={{ opacity:0, duration: 1.5 }}
     >
-      <div className='home'>
+      <div className="aboutPage">
       <h1 className='abouth1'> About Me </h1>
       <span className="aboutSpan">
         Skyler is software developer who's shipped code to millions of users 
@@ -22,15 +22,11 @@ function ProjectDisplay() {
 
       <h1 className='abouth2'> Skills</h1>
         <span className='aboutSpan'>JavaScript, C++, C#, TypeScript, Web, Games, Audio</span>
-        <a href='https://drive.google.com/file/d/1U5Lf-A6zvvcJ-X-o4OikQShZnAuqq483/view?usp=sharing'/>
-        <Document
-          file={"https://drive.google.com/file/d/1U5Lf-A6zvvcJ-X-o4OikQShZnAuqq483/view?usp=sharing"}
-          onLoadError={console.error}
-          style={{ width: '100vw', height: 'auto'}}
-        >
-          <Page pageIndex={0} />
-        </Document>
-      </div>
+        <br/>
+        <a href='https://drive.google.com/file/d/1U5Lf-A6zvvcJ-X-o4OikQShZnAuqq483/view?usp=sharing'> 
+         Resume
+        </a>
+        </div>
     </motion.div>
   );
 }

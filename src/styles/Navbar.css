@@ -1,36 +1,37 @@
 .topnav {
-  position: relative;
+  position: absolute;
   width: 100%;
+  height: 5%;
+
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .links {
-  float: right;
-  transform: translateY(-135%);
   display: flex;
-  color: white;
+  justify-self: center;
+  margin-top: 1%;
+  grid-column-start: 2;
+  grid-column-end: -1;
 }
 
-
+.link navlink {
+  width: 50%;
+}
 
 .title {
   display: flex;
   float: left;
-  transform: translateY(5%);
   flex-direction: column;
   width: 90%;
 }
 
-.title dh1:nth-child():hover {
-  color: black;
-}
-
 .titleSpan {
-  transform: translateY(-150%);
+  transform: translateY(-75%);
   color: white;
   padding-left: 5%;
   padding-right: 5%;
-  list-style: none;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .dh1 {
@@ -38,7 +39,7 @@
 }
 
 .title .dh1 {
-  padding-left: 10px;
+  padding-left: 0.6rem;
 }
 
 .linkBtn:hover a{
@@ -48,14 +49,15 @@
 
 .topnav a {
   color: white;
-  padding: 14px 16px;
+  padding: 1em 1em;
   text-decoration: none;
   font-size: 17px;
   display: block;
 }
 
 .socialMedia {
-
+  position: absolute;
+  left: 0;
   color: white;
   margin: 5px;
   cursor: pointer;
@@ -63,20 +65,4 @@
 
 .socialMedia svg {
   margin: 5px;
-}
-
-@media screen and (max-width: 501px) {
-  .links {
-    transform: translateY(-60%);
-    float: none;
-    display: inline-flex;
-  }
-
-  .socialMedia {
-    position: relative;
-    transform: translateX(75%) translateY(-550%);
-    color: white;
-    margin: 5px;
-    cursor: pointer;
-  }
 }

@@ -14,7 +14,7 @@ function Navbar() {
         setExpandNavbar(false);
     }, [location]);
 
-    return <div className="topnav" id={expandNavBar ? "open" : "close"}>
+    return <div className="topnav" >
         <div className='title'>
             <h1 className='dh1'> Skyler Moosman </h1> 
             <br></br>
@@ -29,14 +29,7 @@ function Navbar() {
             </NavLink>
             <NavLink to="../pages/Projects" className='linkBtn'>
                 <a>Projects</a>
-            </NavLink>
-            
-            
-        </div>
-
-        <div className='socialMedia'>
-            <GithubIcon />
-            <LinkedInIcon />
+            </NavLink> 
         </div>
 
     </div>
