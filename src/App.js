@@ -1,7 +1,6 @@
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import {HashLink as Link } from 'react-router-hash-link';
-import Home from './pages/Home';
 import About from './pages/About';
 import Experience from './pages/Experience';
 import Navbar from './components/Navbar';
@@ -21,11 +20,13 @@ function App() {
         <link rel='canonical' href='https://themooseman.github.io' />
       </Helmet>
       <Router>
+      <Routes>
+          <Route path='/' element={<Navigate to={'/pages/About'} />} />
+        </Routes>
         <div className='wrapper'>
         <ParticleBackground></ParticleBackground>
         <div className='bodyWrapper'>
         <Navbar/>
-        <Link to={Home} />
         <Link to={About} />
         <Link to={Experience} />
         <AnimatedRoutes className="main" />
