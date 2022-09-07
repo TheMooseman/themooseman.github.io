@@ -9,16 +9,13 @@ import ProjectCard from '../components/ProjectCard';
 
 
 function Projects() {
-  const [hockeyText, setHockey] = useState('Hockey');
-  const [notHockeyText, setNotHockey] = useState('Not Hockey');
+  const [shopText, setShopText] = useState('Your Fav Shop');
 
   function changeTitles(toggleVal) {
     if(toggleVal){
-      setHockey('Not Hockey');
-      setNotHockey('Not Not Hockey')
+      setShopText('Not Your Fav Shop');
     } else {
-      setHockey('Hockey');
-      setNotHockey('Not Hockey')
+      setShopText('Your Fav Shop');
     }
   }
 
@@ -40,17 +37,11 @@ function Projects() {
 
       <div className="projectList">
         <ProjectCard
-          projLoc='./ProjectPages/NHLData'
-          github='https://github.com/TheMooseman/themooseman.github.io/blob/master/src/pages/ProjectPages/NHLData.js'
-          img='https://sportshub.cbsistatic.com/i/r/2022/08/05/b7f9b325-b2fe-4dcb-8571-6696b84de7ba/thumbnail/640x360/c79cfff48b368d0d7a6775d32b77d231/gettyimages-1191106966-2.jpg'
-          title={hockeyText}
-          desc='Data from the NHL API that allows you to text search team names, locations, and their venues.'
-        />
-
-        <ProjectCard 
-          img='https://images-na.ssl-images-amazon.com/images/I/61yJfCrclqL._SY498_BO1,204,203,200_.jpg'
-          title={notHockeyText}
-          desc='Definitely not hockey data.  Just a placeholder.'
+          projLoc='https://yourfav.shop/'
+          github='https://github.com/TheMooseman/TheShop'
+          img='https://upload.wikimedia.org/wikipedia/commons/8/8e/Shop.svg'
+          title={shopText}
+          desc='E-commerce site demo for a fictional shop that sells clothing.  Built with React, Redux, and Firebase.'
         />
 
       </div>
