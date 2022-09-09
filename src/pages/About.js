@@ -23,7 +23,7 @@ function ProjectDisplay() {
       <h1 className='abouth2'> Skills</h1>
         <span className='aboutSpan'>JavaScript, C++, C#, TypeScript, Web, Games, Audio</span>
         <br/>
-        <a href='https://drive.google.com/file/d/1U5Lf-A6zvvcJ-X-o4OikQShZnAuqq483/view?usp=sharing'> 
+        <a href='https://drive.google.com/file/d/1FtwYH9Nh8q5YiT0UsLOn-xLoS2YUZ-lL/view?usp=sharing'> 
          Resume
         </a>
         </div>
