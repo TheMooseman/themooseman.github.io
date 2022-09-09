@@ -14,7 +14,8 @@ function Navbar() {
         setExpandNavbar(false);
     }, [location]);
 
-    return <div className="topnav" >
+    return (
+    <div className="topnav" >
         <div className='title'>
             <h1 className='dh1'> Skyler Moosman </h1> 
             <br></br>
@@ -33,6 +34,7 @@ function Navbar() {
         </div>
 
     </div>
+    )
 }
 
 export default Navbar
