@@ -44,21 +44,9 @@
 }
 
 .topnav a {
+  margin-top: 14%;
   color: white;
   padding: 1em 1em;
   text-decoration: none;
-  font-size: 17px;
-  display: block;
-}
-
-.socialMedia {
-  position: absolute;
-  left: 0;
-  color: white;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.socialMedia svg {
-  margin: 5px;
+  font-size: 1rem;
 }
