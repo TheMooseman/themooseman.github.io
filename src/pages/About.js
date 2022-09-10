@@ -24,7 +24,7 @@ function ProjectDisplay() {
         <span className='aboutSpan'>JavaScript, React/Redux, Firebase, NoSQL, C++, C#, TypeScript, Web, Game Development</span>
         <br/>
         <a 
-        href='https://drive.google.com/file/d/1FtwYH9Nh8q5YiT0UsLOn-xLoS2YUZ-lL/view?usp=sharing'
+        href='https://drive.google.com/file/d/1wp_xrlO_8SG12-UNPKpst6wS-TW-e5XQ/view?usp=sharing'
         target='_blank'
         > 
          Resume
