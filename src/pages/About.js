@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/Home.css";
 import { motion } from 'framer-motion';
-import { Document, Page } from "react-pdf";
 
 function ProjectDisplay() {
   return (

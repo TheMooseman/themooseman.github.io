@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React from 'react';
 import { motion } from 'framer-motion';
-import ToggleSwitch from '../components/ToggleSwitch';
-import NHLProj from './ProjectPages/NHLData';
 import "../styles/Projects.css";
 import ProjectCard from '../components/ProjectCard';
 
