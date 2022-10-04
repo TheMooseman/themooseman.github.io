@@ -15,7 +15,7 @@
 }
 
 .title {
-  margin-top: -5%;
+  margin-top: -2%;
   font-size: 1rem;
   display: flex;
   float: left;
@@ -23,7 +23,7 @@
 }
 
 .titleSpan {
-  margin-top: -14%;
+  margin-top: -5%;
   color: white;
   padding-left: 5%;
   padding-right: 5%;
