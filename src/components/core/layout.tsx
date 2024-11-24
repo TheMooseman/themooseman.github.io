@@ -15,8 +15,8 @@ export function Layout() {
         localStorage.setItem("pass", text);
         setPass(text);
     };
-
     const correctPass = pass === "testing";
+
     return correctPass ? (
         <Box
             width="100%"
