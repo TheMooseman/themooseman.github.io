@@ -1,1 +1,1 @@
-My personal developer portfolio site built using React with Material UI.
+My portfolio site
