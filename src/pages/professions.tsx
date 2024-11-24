@@ -15,6 +15,7 @@ import careerData from "../assets/career-data.csv";
 import { useCsv } from "../hooks/use-csv";
 import { useEffect, useMemo, useState } from "react";
 import { Vec2 } from "regl";
+import { Box } from "@mui/system";
 
 type Filter = {
     name: string;
@@ -56,7 +57,7 @@ function DropdownItem({ filter, onChange }: DropdownItemProps) {
     }, [filter]);
 
     return (
-        <FormControl variant="standard" fullWidth>
+        <FormControl variant="outlined" sx={{ width: "90%" }}>
             {filter.type === "text" ? (
                 <>
                     <InputLabel id={filter.name}>{filter.name}</InputLabel>
@@ -79,7 +80,7 @@ function DropdownItem({ filter, onChange }: DropdownItemProps) {
                 </>
             ) : (
                 <>
-                    <InputLabel id={filter.name}>{filter.name}</InputLabel>
+                    <Typography id={filter.name}>{filter.name}</Typography>
                     <Slider
                         onChange={(_, v) => {
                             onChange?.(v as number[]);
@@ -230,83 +231,87 @@ export function Professions() {
         setFilterItems((prev) => ({ ...prev, [item]: v }));
     };
 
-    return (
-        <Stack direction="row" width="100%" height="100%">
-            {loading ? (
-                <>
-                    <Skeleton width={250} height={50} />
-                    <Skeleton width={600} height={450} />
-                </>
-            ) : (
-                <>
-                    <Stack
-                        paddingX={2}
-                        width="20%"
-                        height="90%"
-                        spacing={2}
-                        overflow="auto"
-                        direction="column"
-                        alignItems="center"
-                    >
-                        {filters.map((f) => (
-                            <DropdownItem
-                                key={f.name}
-                                filter={f}
-                                onChange={(v) => addFilterItem(f.name, v)}
-                            />
-                        ))}
-                    </Stack>
-                    <Stack direction="row" paddingLeft={2} spacing={2}>
-                        <Stack direction="column" width={100}>
-                            <Typography>X Axis</Typography>
-                            <FormControl>
-                                <Select
-                                    labelId={`x-axis`}
-                                    defaultValue={""}
-                                    onChange={(e) =>
-                                        setAxes((prev) => [
-                                            prev[0],
-                                            e.target.value as string,
-                                        ])
-                                    }
-                                >
-                                    {filters
-                                        .filter((f) => f.type === "numeric")
-                                        .map((f) => (
-                                            <MenuItem value={f.name}>
-                                                {f.name}
-                                            </MenuItem>
-                                        ))}
-                                </Select>
-                            </FormControl>
-                        </Stack>
-                        <Stack direction="column" width={100}>
-                            <Typography>Y Axis</Typography>
-                            <FormControl>
-                                <Select
-                                    labelId={`y-axis`}
-                                    defaultValue={""}
-                                    onChange={(e) =>
-                                        setAxes((prev) => [
-                                            prev[0],
-                                            e.target.value as string,
-                                        ])
-                                    }
-                                >
-                                    {filters
-                                        .filter((f) => f.type === "numeric")
-                                        .map((f) => (
-                                            <MenuItem value={f.name}>
-                                                {f.name}
-                                            </MenuItem>
-                                        ))}
-                                </Select>
-                            </FormControl>
-                        </Stack>
-                    </Stack>
-                    <ProfessionsViewer points={points} />
-                </>
-            )}
+    return loading ? (
+        <Box
+            width="100%"
+            height="100%"
+            display="flex"
+            flexDirection="row"
+            marginTop={2}
+        >
+            <Skeleton
+                variant="rectangular"
+                width="20%"
+                height="90%"
+                sx={{ marginRight: 2 }}
+            />
+            <Skeleton variant="rectangular" width="78%" height="90%" />
+        </Box>
+    ) : (
+        <Stack direction="row" width="100%" height="90%">
+            <Stack
+                padding={2}
+                paddingTop={2}
+                width="20%"
+                height="100%"
+                spacing={2}
+                overflow="auto"
+                direction="column"
+                alignItems="center"
+            >
+                {filters.map((f) => (
+                    <DropdownItem
+                        key={f.name}
+                        filter={f}
+                        onChange={(v) => addFilterItem(f.name, v)}
+                    />
+                ))}
+            </Stack>
+            <Stack direction="row" paddingLeft={2} spacing={2}>
+                <Stack direction="column" width={100}>
+                    <Typography>X Axis</Typography>
+                    <FormControl>
+                        <Select
+                            labelId={`x-axis`}
+                            defaultValue={""}
+                            onChange={(e) =>
+                                setAxes((prev) => [
+                                    prev[0],
+                                    e.target.value as string,
+                                ])
+                            }
+                        >
+                            {filters
+                                .filter((f) => f.type === "numeric")
+                                .map((f) => (
+                                    <MenuItem value={f.name}>{f.name}</MenuItem>
+                                ))}
+                        </Select>
+                    </FormControl>
+                </Stack>
+                <Stack direction="column" width={100}>
+                    <Typography>Y Axis</Typography>
+                    <FormControl>
+                        <Select
+                            labelId={`y-axis`}
+                            defaultValue={""}
+                            onChange={(e) =>
+                                setAxes((prev) => [
+                                    prev[0],
+                                    e.target.value as string,
+                                ])
+                            }
+                        >
+                            {filters
+                                .filter((f) => f.type === "numeric")
+                                .map((f) => (
+                                    <MenuItem value={f.name}>{f.name}</MenuItem>
+                                ))}
+                        </Select>
+                    </FormControl>
+                </Stack>
+            </Stack>
+            <ProfessionsViewer points={points} />
         </Stack>
     );
 }

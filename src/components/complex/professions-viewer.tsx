@@ -63,7 +63,6 @@ export function ProfessionsViewer({ points }: ProfessionsViewerProps) {
                 sizes,
                 bgColor
             );
-            renderServer.current.draw();
         }
         // only want to run this at the beginning
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,15 +83,14 @@ export function ProfessionsViewer({ points }: ProfessionsViewerProps) {
         });
         if (renderServer?.current) {
             renderServer.current.clear();
-            console.log(sizes.length);
             renderServer.current.updatePointSizes(sizes);
 
             renderServer.current.draw();
         }
-    }, [points]);
+    }, [points, renderServer]);
 
     const scaledPoints = useMemo(
-        () => points.map((v) => vec2.scale(vec2.sub(v, pointOffs), pointScale)),
+        () => points.map((v) => vec2.sub(vec2.scale(v, pointScale), pointOffs)),
         [pointOffs, pointScale, points]
     );
 
@@ -122,7 +120,7 @@ export function ProfessionsViewer({ points }: ProfessionsViewerProps) {
                         [-1, 1],
                         vec2.div(amt, [size[0], size[1]])
                     );
-                    setPointOffs(scaledAmt);
+                    setPointOffs((prev) => vec2.add(prev, scaledAmt));
                     setStart([e.clientX, e.clientY]);
                 }
             }
