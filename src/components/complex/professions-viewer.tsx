@@ -6,12 +6,16 @@ import React, {
     useMemo,
 } from "react";
 import { RenderServer } from "../render-server";
-import { Box, useTheme } from "@mui/material";
+import { Box, Stack, useTheme } from "@mui/material";
 import { Vec2, Vec4 } from "regl";
 import { vec2 } from "../../utils/math";
 
 interface ProfessionsViewerProps {
     points: Vec2[];
+    lines: Vec2[];
+    divScale: number;
+    axes: [Vec2, Vec2];
+    children?: JSX.Element;
 }
 
 const size = [700, 600];
@@ -32,10 +36,16 @@ function hexToVec4(hexColor: string, opacity = 1): Vec4 {
     return [r, g, b, opacity];
 }
 
-export function ProfessionsViewer({ points }: ProfessionsViewerProps) {
+export function ProfessionsViewer({
+    points,
+    lines,
+    divScale,
+    children,
+}: ProfessionsViewerProps) {
     const theme = useTheme();
     const cnvs = useRef<HTMLCanvasElement>(null);
     const renderServer = useRef<RenderServer>();
+    const div = useRef<HTMLDivElement | null>(null);
     const [pointScale, setPointScale] = useState(1.0);
     const [pointOffs, setPointOffs] = useState<Vec2>([0, 0]);
     const [dragging, setDragging] = useState(false);
@@ -53,7 +63,7 @@ export function ProfessionsViewer({ points }: ProfessionsViewerProps) {
                 }
             });
             const sizes = points?.map(([i, j]) => {
-                return reducedPoints[`${i},${j}`] / 2;
+                return reducedPoints[`${i},${j}`];
             });
 
             const bgColor = hexToVec4(theme.palette.background.default);
@@ -79,24 +89,30 @@ export function ProfessionsViewer({ points }: ProfessionsViewerProps) {
             }
         });
         const sizes = points?.map(([i, j]) => {
-            return reducedPoints[`${i},${j}`] / 2;
+            return reducedPoints[`${i},${j}`];
         });
         if (renderServer?.current) {
-            renderServer.current.clear();
+            console.log(divScale);
             renderServer.current.updatePointSizes(sizes);
+            renderServer.current.updateLines(lines);
 
             renderServer.current.draw();
         }
-    }, [points, renderServer]);
+    }, [divScale, lines, points, renderServer]);
 
     const scaledPoints = useMemo(
         () => points.map((v) => vec2.sub(vec2.scale(v, pointScale), pointOffs)),
         [pointOffs, pointScale, points]
     );
 
+    const scaledLines = useMemo(
+        () => lines.map((v) => vec2.sub(vec2.scale(v, pointScale), pointOffs)),
+        [lines, pointOffs, pointScale]
+    );
+
     const handleMouseMove = (e?: React.MouseEvent<HTMLCanvasElement>) => {
         if (renderServer.current && e) {
-            renderServer.current.updateMouse([e?.movementX, e.movementY]);
+            renderServer.current.updateMouse([e.movementX, e.movementY]);
         } else {
             renderServer.current?.updateMouse(undefined);
             setDragging(false);
@@ -131,13 +147,20 @@ export function ProfessionsViewer({ points }: ProfessionsViewerProps) {
     useEffect(() => {
         if (renderServer.current) {
             renderServer.current.updatePoints(scaledPoints);
-            renderServer.current.clear();
+            renderServer.current.updateLines(scaledLines);
+
             renderServer.current.draw();
         }
-    }, [scaledPoints]);
+    }, [pointOffs, pointScale, scaledLines, scaledPoints]);
 
     return (
-        <Box width={size[0]} height={size[1]} paddingTop={1}>
+        <Box
+            width={size[0]}
+            height={size[1]}
+            paddingTop={1}
+            paddingLeft={1}
+            position="relative"
+        >
             <canvas
                 ref={cnvs}
                 width={size[0]}
@@ -155,6 +178,18 @@ export function ProfessionsViewer({ points }: ProfessionsViewerProps) {
                 onMouseLeave={() => handleMouseMove()}
                 onWheel={zoom}
             />
+            <div ref={div} style={{ position: "absolute", left: 0, top: 0 }} />
+            <Stack
+                direction="row"
+                alignSelf="flex-start"
+                bgcolor="transparent"
+                position="absolute"
+                top={0}
+                left={0}
+                paddingTop={2}
+            >
+                {children}
+            </Stack>
         </Box>
     );
 }

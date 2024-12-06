@@ -8,18 +8,21 @@ export class RenderServer {
     bgColor: Vec4 | undefined;
     positions: Vec2[];
     pointSizes: number[];
+    lines?: Vec2[];
 
     constructor(
         cnvs: HTMLCanvasElement,
         positions: Vec2[],
         pointSizes: number[],
-        bgColor?: Vec4
+        bgColor?: Vec4,
+        lines?: Vec2[]
     ) {
         this.cnvs = cnvs;
         this.regl = REGL({ canvas: this.cnvs });
         this.bgColor = bgColor;
         this.positions = positions;
         this.pointSizes = pointSizes;
+        this.lines = lines;
         this.draw();
     }
 
@@ -35,6 +38,10 @@ export class RenderServer {
         this.pointSizes = sizes;
     }
 
+    updateLines(newLines: Vec2[]) {
+        this.lines = newLines;
+    }
+
     draw() {
         this.clear();
         const uniforms = {
@@ -43,22 +50,29 @@ export class RenderServer {
             },
             mousePos: this.mousePos ?? [0.0, 0.0],
         };
+
+        // draw points
         this.regl({
             frag: /*glsl*/ `
             precision mediump float;
+            varying vec4 fragColor;
+            varying vec2 uv;
 
             void main() {
-                gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+                gl_FragColor = fragColor;
             }
             `,
             vert: /*glsl*/ `
             precision mediump float;
             attribute vec2 position;
             attribute float pointWidth;
+            varying vec2 uv;
+            varying vec4 fragColor;
 
             void main() {
-                gl_PointSize = pointWidth;
-                gl_Position = vec4(position, 0.0, 1.0);
+                gl_PointSize = 4.0;
+                fragColor = vec4(pointWidth / 30.0, 0.0, 0.0, 1.0);
+                gl_Position = vec4(position.x, position.y, 0.0, 1.0);
             }
             `,
             attributes: {
@@ -68,6 +82,36 @@ export class RenderServer {
             uniforms,
             count: this.positions.length,
             primitive: "points",
+        })();
+
+        // draw lines
+        this.regl({
+            frag: /*glsl*/ `
+            precision mediump float;
+
+            void main() {
+                gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0);
+            }
+            `,
+            vert: /*glsl*/ `
+            precision mediump float;
+            attribute vec2 position;
+
+            void main() {
+                gl_Position = vec4(position, 0.0, 1.0);
+            }
+            `,
+            attributes: {
+                position:
+                    this.lines?.map((v) => {
+                        console.log(this.lines);
+                        return v;
+                    }) ?? [],
+            },
+            uniforms,
+            lineWidth: 1,
+            count: this.lines ? this.lines.length : 0,
+            primitive: "lines",
         })();
     }
 

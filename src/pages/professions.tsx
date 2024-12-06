@@ -97,6 +97,13 @@ function DropdownItem({ filter, onChange }: DropdownItemProps) {
     );
 }
 
+const lines: Vec2[] = [
+    [-1, -1],
+    [-1, 1],
+    [-1, -1],
+    [1, -1],
+];
+
 export function Professions() {
     const [axes, setAxes] = useState<[string, string]>([
         "Age",
@@ -105,6 +112,7 @@ export function Professions() {
     const [filterItems, setFilterItems] = useState<
         Record<string, string | number[]>
     >({});
+    const [divScale, setDivScale] = useState<number>(2);
     const { data, loading } = useCsv(careerData);
 
     const { cols, entries } = useMemo(() => splitColsRows(data), [data]);
@@ -219,7 +227,7 @@ export function Professions() {
                 const scaledX = x / xMax;
                 const scaledY = y / yMax;
                 // center on the gl canvas
-                return [scaledX - 0.5, scaledY - 0.5] as Vec2;
+                return [scaledX - 1, scaledY - 1] as Vec2;
             });
 
         // console.log(newPoints.length);
@@ -267,51 +275,82 @@ export function Professions() {
                     />
                 ))}
             </Stack>
-            <Stack direction="row" paddingLeft={2} spacing={2}>
-                <Stack direction="column" width={100}>
-                    <Typography>X Axis</Typography>
-                    <FormControl>
-                        <Select
-                            labelId={`x-axis`}
-                            defaultValue={""}
-                            onChange={(e) =>
-                                setAxes((prev) => [
-                                    prev[0],
-                                    e.target.value as string,
-                                ])
+
+            <ProfessionsViewer
+                points={points}
+                lines={lines}
+                divScale={divScale}
+                axes={[
+                    [0, 0],
+                    [0, 0],
+                ]}
+            >
+                <Stack
+                    direction="row"
+                    paddingLeft={2}
+                    spacing={2}
+                    alignContent="center"
+                >
+                    <Stack direction="column" width={100}>
+                        <Typography>X Axis</Typography>
+                        <FormControl>
+                            <Select
+                                labelId={`x-axis`}
+                                defaultValue={""}
+                                onChange={(e) =>
+                                    setAxes((prev) => [
+                                        prev[0],
+                                        e.target.value as string,
+                                    ])
+                                }
+                            >
+                                {filters
+                                    .filter((f) => f.type === "numeric")
+                                    .map((f) => (
+                                        <MenuItem key={f.name} value={f.name}>
+                                            {f.name}
+                                        </MenuItem>
+                                    ))}
+                            </Select>
+                        </FormControl>
+                    </Stack>
+                    <Stack direction="column" width={100}>
+                        <Typography>Y Axis</Typography>
+                        <FormControl>
+                            <Select
+                                labelId={`y-axis`}
+                                defaultValue={""}
+                                onChange={(e) =>
+                                    setAxes((prev) => [
+                                        prev[0],
+                                        e.target.value as string,
+                                    ])
+                                }
+                            >
+                                {filters
+                                    .filter((f) => f.type === "numeric")
+                                    .map((f) => (
+                                        <MenuItem key={f.name} value={f.name}>
+                                            {f.name}
+                                        </MenuItem>
+                                    ))}
+                            </Select>
+                        </FormControl>
+                    </Stack>
+                    <Stack direction="column">
+                        <Typography>Point Scale</Typography>
+                        <Slider
+                            sx={{ width: 200 }}
+                            defaultValue={4}
+                            min={1}
+                            max={150}
+                            onChange={(_, v) =>
+                                setDivScale((151 - Number(v)) / 10)
                             }
-                        >
-                            {filters
-                                .filter((f) => f.type === "numeric")
-                                .map((f) => (
-                                    <MenuItem value={f.name}>{f.name}</MenuItem>
-                                ))}
-                        </Select>
-                    </FormControl>
+                        />
+                    </Stack>
                 </Stack>
-                <Stack direction="column" width={100}>
-                    <Typography>Y Axis</Typography>
-                    <FormControl>
-                        <Select
-                            labelId={`y-axis`}
-                            defaultValue={""}
-                            onChange={(e) =>
-                                setAxes((prev) => [
-                                    prev[0],
-                                    e.target.value as string,
-                                ])
-                            }
-                        >
-                            {filters
-                                .filter((f) => f.type === "numeric")
-                                .map((f) => (
-                                    <MenuItem value={f.name}>{f.name}</MenuItem>
-                                ))}
-                        </Select>
-                    </FormControl>
-                </Stack>
-            </Stack>
-            <ProfessionsViewer points={points} />
+            </ProfessionsViewer>
         </Stack>
     );
 }
